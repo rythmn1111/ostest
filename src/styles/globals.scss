@@ -5,10 +5,11 @@ body {
 }
 .winbox{
     position: absolute;
+    top: 0;
     margin: 0;
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    height: 400px;
+    width: 400px;
     flex-direction: column;
 }
 .wb-body{
@@ -20,7 +21,9 @@ body {
 .wb-title{
     background-color: red;
     display: inline-block;
+    margin: 0%;
     h2{
+        margin: 0%;
         display: inline-block;
     }
 }
@@ -41,6 +44,7 @@ body {
     background-color: blue;
     border: 3px solid black;
     display: flex;
+    align-items: center;
 }
 .wb-control{
     display: flex;
