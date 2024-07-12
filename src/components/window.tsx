@@ -6,9 +6,9 @@ export default function WindowStructure() {
   return (
     <>
     <p>qowdqwq dqw dwq dwq d qwd w Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam error, necessitatibus esse recusandae quaerat excepturi autem enim reprehenderit at vitae reiciendis deserunt quis laborum amet praesentium! Sint necessitatibus perferendis similique. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur, nisi. Repellendus quisquam unde ipsam praesentium officiis, sint eum autem saepe minima iusto, rem ex ullam omnis adipisci illo nihil eveniet! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum tempora omnis dolorem aliquam repellendus, blanditiis provident a rerum hic alias libero voluptatem aliquid fuga sapiente quam nisi dignissimos doloribus mollitia.lore Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus aliquid explicabo soluta dolorum neque, accusamus, adipisci odit optio, placeat voluptate suscipit impedit laboriosam exercitationem error? Perspiciatis nam rem laudantium repellat. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora provident deleniti commodi repudiandae voluptates asperiores dicta et aut atque accusantium quod distinctio quia voluptatum, ipsa inventore nemo eos unde molestiae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, nemo. Nobis tempore mollitia ex culpa, asperiores odio vel iste inventore quos molestiae sed sint sapiente cum officiis placeat ratione eos! </p>
-    <Draggable>
 
     <div className="winbox">
+    <Draggable>
         <div className="wb-header">
             <div className="wb-drag">
                 {/* <div className="wb-icon"></div> */}
@@ -31,6 +31,7 @@ export default function WindowStructure() {
                 </span>
             </div>
         </div>
+                    </Draggable>
         <div className="wb-body">
             qwd
         </div>
@@ -43,7 +44,6 @@ export default function WindowStructure() {
         <div className="wb-se"></div>
         <div className="wb-sw"></div> */}
     </div>
-        </Draggable>
 
     </>
   );
