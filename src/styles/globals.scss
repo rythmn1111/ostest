@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.winbox{
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+.wb-body{
+    background-color: yellow;
+    border: 5px solid green;
+    flex: 1;
+}
+
+.wb-title{
+    background-color: red;
+    display: inline-block;
+    h2{
+        display: inline-block;
+    }
+}
+.wb-drag{
+    display: inline-block;
+}
+.wb-control{
+    display: inline-block;
+}
+.wb-min,.wb-full,.wb-close{
+    // display: inline-block;
+    cursor:crosshair;
+    margin-left:4px;
+    margin-right: 4px;
+}
+
+.wb-header{
+    background-color: blue;
+    border: 3px solid black;
+    display: flex;
+}
+.wb-control{
+    display: flex;
+    align-items: center;
+    background-color: greenyellow;
+}
+.wb-drag{
+    flex: 1;
+    background-color: aqua;
+}
