@@ -1,14 +1,19 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  overflow: hidden;
+// :root {
+//     --font-press-start-2p: 'Press Start 2P', cursive;
+//   }
+  
+  body {
+    // font-family: var(--font-press-start-2p);
+    margin: 0;
+    padding: 0;
 }
+
 .os-div{
     margin: 0;
     padding: 0;
     height: 100vh;
     width: 100vw;
+    position: absolute;
     p{
         margin: 0;
         padding: 0;
@@ -22,7 +27,9 @@ body {
     margin: 0;
     display: flex;
     height: 400px;
+    // height: 100vh;
     width: 400px;
+    // width: 100vw;
     flex-direction: column;
 }
 .wb-body{
@@ -48,9 +55,10 @@ body {
 }
 .wb-min,.wb-full,.wb-close{
     // display: inline-block;
-    cursor:crosshair;
+    cursor:pointer;
     margin-left:4px;
     margin-right: 4px;
+    
 }
 
 .wb-header{
@@ -67,4 +75,34 @@ body {
 .wb-drag{
     flex: 1;
     background-color: aqua;
+}
+.main-desktop-container{
+    display: flex;
+    flex-direction: column;
+    background-image: url('/wallpaper.png');
+    // background-size: 100vh 100vw;
+    background-position: center center;
+    height: 100vh;
+    width: 100vw;
+}
+.playground{
+    flex: 1;
+}
+.task-bar{
+    height: 50px;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.9);
+    margin: 0;
+    opacity: 0.7;
+    
+}
+.time-div{
+    color:white
+}
+.task-bar{
+    display: flex;
+    align-items: center;
+    .appdiv{
+        flex: 1;
+    }
 }

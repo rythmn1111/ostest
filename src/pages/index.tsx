@@ -3,12 +3,20 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import WindowStructure from "@/components/window";
+import Desktop, {Playground, TaskBar} from "@/components/desktop";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <WindowStructure />
+    <Desktop>
+      <Playground>
+        <div>hello</div>
+      </Playground>
+      <TaskBar>
+        <div></div>
+      </TaskBar>
+    </Desktop>
   );
 }
 
