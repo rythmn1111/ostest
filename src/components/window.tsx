@@ -43,7 +43,7 @@ export default function WindowStructure() {
       }}
     >
     
-    <div className="winbox" style={{ top: isMaximize ? '0' : '50px', left: isMaximize ? '0' : '50px' ,height: isMaximize ? '100vh' : '400px', width: isMaximize ? '100vw' : '400px'} }>
+    <div className="winbox" style={{ top: isMaximize ? '0' : '50px', left: isMaximize ? '0' : '50px' ,height: isMaximize ? '93%' : '400px', width: isMaximize ? '100%' : '400px'} }>
         <div className="wb-header">
             <div className="wb-drag">
                 {/* <div className="wb-icon"></div> */}
