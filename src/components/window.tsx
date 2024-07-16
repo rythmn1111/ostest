@@ -13,15 +13,11 @@ function closeControl(){
 
 export default function WindowStructure() {
     const [isMaximize, setMaximize] = useState(false);
-    // const [isMaximize, setMaximize] = useState(false);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [position, setPosition] = useState({ x: 150, y: 150 });
 
 
     function maximizeControl() {
     setMaximize(!isMaximize);
-    if (!isMaximize) {
-      setPosition({ x: 0, y: 0 });
-        }
      }
 
     function minimizeControl(){
@@ -35,17 +31,17 @@ export default function WindowStructure() {
     return (
     <>
     {/* <div className="os-div"> */}
-    <Draggable handle=".wb-header" bounds="parent" position={isMaximize ? { x: 0, y: 0 } : position}
+    <Draggable handle= ".wb-header" bounds="parent" position={isMaximize ? { x: 0, y: 0 } : position}
     onStop={(e, data) => {
         if (!isMaximize) {
           setPosition({ x: data.x, y: data.y });
         }
       }}
     >
-    
-    <div className="winbox" style={{ top: isMaximize ? '0' : '50px', left: isMaximize ? '0' : '50px' ,height: isMaximize ? '93%' : '400px', width: isMaximize ? '100%' : '400px'} }>
+    {/* top: isMaximize ? '0' : '30px', left: isMaximize ? '0' : '30px' , */}
+    <div className="winbox" style={{ height: isMaximize ? '93%' : '400px', width: isMaximize ? '100%' : '400px'} }>
         <div className="wb-header">
-            <div className="wb-drag">
+            <div className="wb-drag" onDoubleClick={maximizeControl}>
                 {/* <div className="wb-icon"></div> */}
                 <div className="wb-title">
                     <h2>Patient Report</h2>
