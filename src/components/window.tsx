@@ -39,10 +39,10 @@ export default function WindowStructure() {
       }}
     >
     {/* top: isMaximize ? '0' : '30px', left: isMaximize ? '0' : '30px' , */}
-    <div className="winbox" style={{ height: isMaximize ? '93%' : '400px', width: isMaximize ? '100%' : '400px'} }>
+    <div className="winbox" style={{ height: isMaximize ? '100%' : '400px', width: isMaximize ? '100%' : '400px'} }>
         <div className="wb-header">
             <div className="wb-drag" onDoubleClick={maximizeControl}>
-                {/* <div className="wb-icon"></div> */}
+                {/* <div className="wb-ic9on"></div> */}
                 <div className="wb-title">
                     <h2>Patient Report</h2>
                 </div>
