@@ -39,7 +39,7 @@ function DateTimeDisplay() {
   
     return (
       <div style={{marginRight:"8px"}}>
-        <div style={{fontSize:"20px"}}>{dateTime.format('h:mmA')}</div>
+        <div style={{fontSize:"17px", marginBottom:"3px"}}>{dateTime.format('h:mmA')}</div>
         <div style={{fontSize:"12px"}}>{dateTime.format('D/MM/YYYY')}</div>
       </div>
     );

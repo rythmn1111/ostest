@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState } from "react";
 import Image from 'next/image'
 import Draggable, {DraggableCore} from 'react-draggable';
-
+import { Resizable } from 're-resizable';
 
 
 function minimizeControl(){
@@ -13,20 +13,37 @@ function closeControl(){
 
 export default function WindowStructure() {
     const [isMaximize, setMaximize] = useState(false);
-    function maximizeControl(){
-        setMaximize(!isMaximize)
-    }
+    // const [isMaximize, setMaximize] = useState(false);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+
+
+    function maximizeControl() {
+    setMaximize(!isMaximize);
+    if (!isMaximize) {
+      setPosition({ x: 0, y: 0 });
+        }
+     }
+
     function minimizeControl(){
         alert("clicked")
     }
     function closeControl(){
         alert("clicked")
     }
+
+
     return (
     <>
-    <div className="os-div">
-    <Draggable handle=".wb-header" bounds="">
-    <div className="winbox" style={{height: isMaximize ? '100vh' : '400px', width: isMaximize ? '100vw' : '400px' } }>
+    {/* <div className="os-div"> */}
+    <Draggable handle=".wb-header" bounds="parent" position={isMaximize ? { x: 0, y: 0 } : position}
+    onStop={(e, data) => {
+        if (!isMaximize) {
+          setPosition({ x: data.x, y: data.y });
+        }
+      }}
+    >
+    
+    <div className="winbox" style={{ top: isMaximize ? '0' : '50px', left: isMaximize ? '0' : '50px' ,height: isMaximize ? '100vh' : '400px', width: isMaximize ? '100vw' : '400px'} }>
         <div className="wb-header">
             <div className="wb-drag">
                 {/* <div className="wb-icon"></div> */}
@@ -74,7 +91,7 @@ export default function WindowStructure() {
         <div className="wb-sw"></div> */}
     </div>
         </Draggable>
-        </div>
+        {/* </div> */}
 
     </>
   );
