@@ -32,6 +32,12 @@ export default function WindowStructure() {
     <>
     {/* <div className="os-div"> */}
     <Draggable handle= ".wb-header" bounds="parent" position={isMaximize ? { x: 0, y: 0 } : position}
+    onDrag={(e, data) => {
+        if (isMaximize) {
+          setMaximize(!isMaximize);
+          setPosition({ x: e.clientX-100, y: e.clientY });
+        }
+    }}
     onStop={(e, data) => {
         if (!isMaximize) {
           setPosition({ x: data.x, y: data.y });
