@@ -25,7 +25,7 @@ export default function WindowStructure() {
 
     const [isMaximize, setMaximize] = useState(false);
     const [position, setPosition] = useState({ x: 150, y: 150 });
-    
+    const [width, setWidth] = useState(400);
     useEffect(()=>{
         const resizable = ref.current as HTMLElement;
 
@@ -45,6 +45,8 @@ export default function WindowStructure() {
             x = event.clientX;
             width = width + dx;
             resizable.style.width = `${width}px`;
+            setWidth(width);
+            
           };
 
         const onMouseUpRightResize = (event: MouseEvent) => {
@@ -103,7 +105,7 @@ export default function WindowStructure() {
 
       
     {/* top: isMaximize ? '0' : '30px', left: isMaximize ? '0' : '30px' , */}
-    <div ref={ref as React.RefObject<HTMLDivElement>} className="winbox" style={{ height: isMaximize ? '100%' : '400px', width: isMaximize ? '100%' : '400px'} }>
+    <div ref={ref as React.RefObject<HTMLDivElement>} className="winbox" style={{ height: isMaximize ? '100%' : '400px', width: isMaximize ? '100%' : width} }>
         <div className="wb-header">
             <div className="wb-drag" onDoubleClick={maximizeControl}>
                 {/* <div className="wb-ic9on"></div> */}
