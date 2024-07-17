@@ -32,8 +32,8 @@ export default function WindowStructure() {
         const style = window.getComputedStyle(resizable);
         // Rest of the code using the style object
         const styles = window.getComputedStyle(resizable);
-        let width = parseInt(styles.left, 10);
-        let height = parseInt(styles.top, 10);
+        let width = parseInt(styles.width, 10);
+        let height = parseInt(styles.height, 10);
         let x =0;
         let y =0;
 
@@ -67,7 +67,7 @@ export default function WindowStructure() {
         }
 
         
-    })
+    },[])
 
 
     function maximizeControl() {
@@ -81,7 +81,7 @@ export default function WindowStructure() {
         alert("clicked")
     }
 
-
+    // const resizable1 = ref.current as HTMLElement;
     return (
     <>
     {/* <div className="os-div"> */}
@@ -101,7 +101,7 @@ export default function WindowStructure() {
       }}
     >
 
-    
+      
     {/* top: isMaximize ? '0' : '30px', left: isMaximize ? '0' : '30px' , */}
     <div ref={ref as React.RefObject<HTMLDivElement>} className="winbox" style={{ height: isMaximize ? '100%' : '400px', width: isMaximize ? '100%' : '400px'} }>
         <div className="wb-header">
