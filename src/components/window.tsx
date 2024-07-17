@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import Image from 'next/image'
 import Draggable, {DraggableCore,DraggableEvent, DraggableData} from 'react-draggable';
 import { Resizable } from 're-resizable';
@@ -12,8 +12,62 @@ function closeControl(){
 }
 
 export default function WindowStructure() {
+    const ref = useRef<HTMLElement | null>(null);
+    const refLeft = useRef(null);
+    const refTop = useRef(null);
+    const refRight = useRef<HTMLDivElement | null>(null);
+    const refBottom = useRef(null);
+    const refTopLeft = useRef(null);
+    const refTopRight = useRef(null);
+    const refBottomLeft = useRef(null);
+    const refBottomRight = useRef(null);
+
+
     const [isMaximize, setMaximize] = useState(false);
     const [position, setPosition] = useState({ x: 150, y: 150 });
+    
+    useEffect(()=>{
+        const resizable = ref.current as HTMLElement;
+
+        const style = window.getComputedStyle(resizable);
+        // Rest of the code using the style object
+        const styles = window.getComputedStyle(resizable);
+        let width = parseInt(styles.left, 10);
+        let height = parseInt(styles.top, 10);
+        let x =0;
+        let y =0;
+
+        resizable.style.top = '0px'
+        resizable.style.left = '0px'
+        
+        const onMouseMoveRightResize = (event: MouseEvent) => {
+            const dx = event.clientX - x;
+            x = event.clientX;
+            width = width + dx;
+            resizable.style.width = `${width}px`;
+          };
+
+        const onMouseUpRightResize = (event: MouseEvent) => {
+            window.removeEventListener('mousemove', onMouseMoveRightResize);
+          
+        }
+
+        const onMouseDownRightResize = (event: MouseEvent) => {
+            x = event.clientX;
+            resizable.style.left = styles.left;
+            resizable.style.right = "";
+            window.addEventListener('mousemove', onMouseMoveRightResize);
+            window.addEventListener('mouseup', onMouseUpRightResize);
+        
+        }
+
+        const resizerRight = refRight.current;
+        if (resizerRight) {
+          resizerRight.addEventListener('mousedown', onMouseDownRightResize);
+        }
+
+        
+    })
 
 
     function maximizeControl() {
@@ -46,8 +100,10 @@ export default function WindowStructure() {
         }
       }}
     >
+
+    
     {/* top: isMaximize ? '0' : '30px', left: isMaximize ? '0' : '30px' , */}
-    <div className="winbox" style={{ height: isMaximize ? '100%' : '400px', width: isMaximize ? '100%' : '400px'} }>
+    <div ref={ref as React.RefObject<HTMLDivElement>} className="winbox" style={{ height: isMaximize ? '100%' : '400px', width: isMaximize ? '100%' : '400px'} }>
         <div className="wb-header">
             <div className="wb-drag" onDoubleClick={maximizeControl}>
                 {/* <div className="wb-ic9on"></div> */}
@@ -85,15 +141,18 @@ export default function WindowStructure() {
         <div className="wb-body">
             qwd
         </div>
-        {/* <div className="wb-n"></div>
-        <div className="wb-s"></div>
-        <div className="wb-w"></div>
-        <div className="wb-e"></div>
-        <div className="wb-nw"></div>
-        <div className="wb-ne"></div>
-        <div className="wb-se"></div>
-        <div className="wb-sw"></div> */}
+        {/* <div className="wb-sizeable"> */}
+        <div ref={refTop} className="wb-top"></div>
+        <div ref={refBottom} className="wb-bottom"></div>
+        <div ref={refRight} className="wb-right"></div>
+        <div ref={refLeft} className="wb-left"></div>
+        <div ref={refTopLeft} className="wb-top-left"></div>
+        <div ref={refTopRight} className="wb-top-right"></div>
+        <div ref={refBottomLeft} className="wb-bottom-left"></div>
+        <div ref={refBottomRight} className="wb-bottom-right"></div>
+        {/* </div> */}
     </div>
+                    
         </Draggable>
         {/* </div> */}
 

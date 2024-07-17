@@ -77,6 +77,42 @@
     cursor: move;
     background-color: aqua;
 }
+
+  .wb-right, .wb-left, .wb-top, .wb-bottom,
+  .wb-top-left, .wb-top-right, .wb-bottom-left, .wb-bottom-right {
+    position: absolute;
+    background: transparent;
+    z-index: 9999;
+  }
+  
+  .wb-right, .wb-left {
+    width: 6px;
+    height: 100%;
+    cursor: ew-resize;
+  }
+  
+  .wb-top, .wb-bottom {
+    height: 6px;
+    width: 100%;
+    cursor: ns-resize;
+  }
+  
+  .wb-right { right: 0; }
+  .wb-left { left: 0; }
+  .wb-top { top: 0; }
+  .wb-bottom { bottom: 0; }
+  
+  .wb-top-left, .wb-top-right, .wb-bottom-left, .wb-bottom-right {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .wb-top-left { top: 0; left: 0; cursor: nwse-resize; }
+  .wb-top-right { top: 0; right: 0; cursor: nesw-resize; }
+  .wb-bottom-left { bottom: 0; left: 0; cursor: nesw-resize; }
+  .wb-bottom-right { bottom: 0; right: 0; cursor: nwse-resize; }
+
+
 .main-desktop-container{
     display: flex;
     flex-direction: column;
