@@ -1,6 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import Image from 'next/image'
-import Draggable, {DraggableCore} from 'react-draggable';
+import Draggable, {DraggableCore,DraggableEvent, DraggableData} from 'react-draggable';
 import { Resizable } from 're-resizable';
 
 
@@ -32,10 +32,12 @@ export default function WindowStructure() {
     <>
     {/* <div className="os-div"> */}
     <Draggable handle= ".wb-header" bounds="parent" position={isMaximize ? { x: 0, y: 0 } : position}
-    onDrag={(e, data) => {
+    onDrag={(e: DraggableEvent | TouchEvent, data: DraggableData) => {
         if (isMaximize) {
           setMaximize(!isMaximize);
-          setPosition({ x: e.clientX-100, y: e.clientY });
+          const clientX = 'clientX' in e ? e.clientX : e.touches[0].clientX;
+          const clientY = 'clientY' in e ? e.clientY : e.touches[0].clientY;
+          setPosition({ x: clientX - 100, y: clientY });
         }
     }}
     onStop={(e, data) => {
