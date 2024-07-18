@@ -2,6 +2,7 @@ import React, { use, useEffect, useRef, useState } from "react";
 import Image from 'next/image'
 import Draggable, {DraggableCore,DraggableEvent, DraggableData} from 'react-draggable';
 import { Resizable } from 're-resizable';
+import { init } from "next/dist/compiled/webpack/webpack";
 
 
 function minimizeControl(){
@@ -27,6 +28,7 @@ export default function WindowStructure() {
     const [position, setPosition] = useState({ x: 150, y: 150 });
     const [width, setWidth] = useState(400);
     const [height, setHeight] = useState(400);
+    const [left, setLeft] = useState("");
     useEffect(()=>{
         const resizable = ref.current as HTMLElement;
 
@@ -38,9 +40,10 @@ export default function WindowStructure() {
         let x =0;
         let y =0;
 
-        resizable.style.top = '0px'
-        resizable.style.left = '0px'
-        
+        // resizable.style.top = '0px'
+        // resizable.style.left = '0px'
+        // resizable.style.right = '0px'
+        // right resizing
         const onMouseMoveRightResize = (event: MouseEvent) => {
             const dx = event.clientX - x;
             x = event.clientX;
@@ -58,24 +61,62 @@ export default function WindowStructure() {
 
         const onMouseDownRightResize = (event: MouseEvent) => {
             x = event.clientX;
+            setLeft(styles.left);
             resizable.style.left = styles.left;
             resizable.style.right = "";
             window.addEventListener('mousemove', onMouseMoveRightResize);
             window.addEventListener('mouseup', onMouseUpRightResize);
         
         }
+        // left resizing
+        const  onMouseDownLeftResize = (event: MouseEvent) => {
+            x = event.clientX;
+            resizable.style.right = styles.right;
+            resizable.style.left = "";
+            window.addEventListener('mousemove', onMouseMoveLeftResize);
+            window.addEventListener('mouseup', onMouseUpLeftResize);
+        }
+        const onMouseUpLeftResize = (event: MouseEvent) => {
+            window.removeEventListener('mousemove', onMouseMoveLeftResize);
+        }
+        const onMouseMoveLeftResize = (event: MouseEvent) => {
+            const dx = event.clientX - x;
+            x = event.clientX;
+            const newWidth = Math.max(width - dx, 300);
+            width = newWidth;
+            resizable.style.width = `${width}px`;
+            setWidth(width);
+        }
 
+        
+
+
+        //resize eventListener
         const resizerRight = refRight.current;
         if (resizerRight) {
           resizerRight.addEventListener('mousedown', onMouseDownRightResize);
         }
+        const resizerLeft = refLeft.current;
+        if (resizerLeft) {
+          resizerLeft.addEventListener('mousedown', onMouseDownLeftResize);
+        }
+
+        return () => {
+            if(resizerRight){
+                resizerRight.removeEventListener("mousedown", onMouseDownRightResize);
+            }
+            if(resizerLeft){
+                resizerLeft.removeEventListener("mousedown", onMouseDownLeftResize);
+            }
+        };
 
         
     },[])
 
 
     function maximizeControl() {
-    setMaximize(!isMaximize);
+        setMaximize(!isMaximize);
+    
      }
 
     function minimizeControl(){
@@ -107,7 +148,7 @@ export default function WindowStructure() {
 
       
     {/* top: isMaximize ? '0' : '30px', left: isMaximize ? '0' : '30px' , */}
-    <div ref={ref as React.RefObject<HTMLDivElement>} className="winbox" style={{ height: isMaximize ? '100%' : '400px', width: isMaximize ? '100%' : width} }>
+    <div ref={ref as React.RefObject<HTMLDivElement>} className="winbox" style={{ left: isMaximize?'0px':left ,height: isMaximize ? '100%' : height, width: isMaximize ? '100%' : width} }>
         <div className="wb-header">
             <div className="wb-drag" onDoubleClick={maximizeControl}>
                 {/* <div className="wb-ic9on"></div> */}
