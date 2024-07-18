@@ -13,19 +13,20 @@ function closeControl(){
 
 export default function WindowStructure() {
     const ref = useRef<HTMLElement | null>(null);
-    const refLeft = useRef(null);
-    const refTop = useRef(null);
+    const refLeft = useRef<HTMLDivElement | null>(null);
+    const refTop = useRef<HTMLDivElement | null>(null);
     const refRight = useRef<HTMLDivElement | null>(null);
-    const refBottom = useRef(null);
-    const refTopLeft = useRef(null);
-    const refTopRight = useRef(null);
-    const refBottomLeft = useRef(null);
-    const refBottomRight = useRef(null);
+    const refBottom = useRef<HTMLDivElement | null>(null);
+    const refTopLeft = useRef<HTMLDivElement | null>(null);
+    const refTopRight = useRef<HTMLDivElement | null>(null);
+    const refBottomLeft = useRef<HTMLDivElement | null>(null);
+    const refBottomRight = useRef<HTMLDivElement | null>(null);
 
 
     const [isMaximize, setMaximize] = useState(false);
     const [position, setPosition] = useState({ x: 150, y: 150 });
     const [width, setWidth] = useState(400);
+    const [height, setHeight] = useState(400);
     useEffect(()=>{
         const resizable = ref.current as HTMLElement;
 
@@ -43,7 +44,8 @@ export default function WindowStructure() {
         const onMouseMoveRightResize = (event: MouseEvent) => {
             const dx = event.clientX - x;
             x = event.clientX;
-            width = width + dx;
+            const newWidth = Math.max(width + dx, 300);
+            width = newWidth;
             resizable.style.width = `${width}px`;
             setWidth(width);
             
