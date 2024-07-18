@@ -11,6 +11,7 @@ const TaskBar = dynamic(() => import('@/components/desktop').then(mod => mod.Tas
 });
 
 export default function Home() {
+  
   return (
     <Desktop>
       <Playground>

@@ -11,7 +11,9 @@ function minimizeControl(){
 function closeControl(){
     alert("clicked")
 }
-
+interface WindowStructureProps {
+    playgroundHeight: number;
+  }
 export default function WindowStructure() {
     const ref = useRef<HTMLElement | null>(null);
     const refLeft = useRef<HTMLDivElement | null>(null);
@@ -88,6 +90,26 @@ export default function WindowStructure() {
             setWidth(width);
         }
 
+
+        // bottom resizing
+        const onMouseUpBottomResize = (event: MouseEvent) => {
+            window.removeEventListener('mousemove', onMouseMoveBottomResize);
+        }
+        const onMouseMoveBottomResize = (event: MouseEvent) => {
+            const dy = event.clientY - y;
+            y = event.clientY;
+            const newHeight = Math.max(height + dy, 300);
+            height = newHeight;
+            resizable.style.height = `${height}px`;
+            setHeight(height);
+        }
+        const onMouseDownBottomResize = (event: MouseEvent) => {
+            y = event.clientY;
+            resizable.style.top = styles.top;
+            resizable.style.bottom = "";
+            window.addEventListener('mousemove', onMouseMoveBottomResize);
+            window.addEventListener('mouseup', onMouseUpBottomResize);
+        }
         
 
 
@@ -100,6 +122,10 @@ export default function WindowStructure() {
         if (resizerLeft) {
           resizerLeft.addEventListener('mousedown', onMouseDownLeftResize);
         }
+        const resizerBottom = refBottom.current;
+        if (resizerBottom) {
+          resizerBottom.addEventListener('mousedown', onMouseDownBottomResize);
+        }
 
         return () => {
             if(resizerRight){
@@ -107,6 +133,10 @@ export default function WindowStructure() {
             }
             if(resizerLeft){
                 resizerLeft.removeEventListener("mousedown", onMouseDownLeftResize);
+            }
+           
+            if(resizerBottom){
+                resizerBottom.removeEventListener("mousedown", onMouseDownBottomResize);
             }
         };
 
