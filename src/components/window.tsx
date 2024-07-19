@@ -28,7 +28,7 @@ export default function WindowStructure() {
 
     const [isMaximize, setMaximize] = useState(false);
     const [position, setPosition] = useState({ x: 150, y: 150 });
-    const [width, setWidth] = useState(400);
+    const [width, setWidth] = useState(600);
     const [height, setHeight] = useState(400);
     const [left, setLeft] = useState("");
     useEffect(()=>{
@@ -191,30 +191,31 @@ export default function WindowStructure() {
                 <span className="wb-min">
                 
                     <Image src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgdmlld0JveD0iMCAwIDE2MCAxNjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjgwIiBjeT0iODAiIHI9IjczIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEzLjI3MjciLz4KPGxpbmUgeDE9IjMzLjU0NTQiIHkxPSI5My4yNzI3IiB4Mj0iMTI2LjQ1NCIgeTI9IjkzLjI3MjciIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMTMuMjcyNyIvPgo8L3N2Zz4K"  
-                    width={30} 
-                    height={30} 
+                    width={27} 
+                    height={27}
+                    className="min-icon" 
                     alt="min-icon"
                     onClick={minimizeControl}/>
                     
                 </span>
                 <span className="wb-full">
                     <Image src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIvPgo8cmVjdCB4PSI3LjUiIHk9IjcuNSIgd2lkdGg9IjYiIGhlaWdodD0iNiIgc3Ryb2tlPSJibGFjayIvPgo8cmVjdCB4PSI5LjUiIHk9IjkuNSIgd2lkdGg9IjYiIGhlaWdodD0iNiIgc3Ryb2tlPSJibGFjayIvPgo8L3N2Zz4K" 
-                    width={30} 
-                    height={30} 
+                    width={27} 
+                    height={27} 
                     alt="max-icon"
                     onClick={maximizeControl}></Image>
                 </span>
                 <span className="wb-close">
                     <Image src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIvPgo8bGluZSB4MT0iNi4zNTM1NSIgeTE9IjUuNjQ2NDUiIHgyPSIxNi4zNTM2IiB5Mj0iMTUuNjQ2NCIgc3Ryb2tlPSJibGFjayIvPgo8bGluZSB4MT0iNS42NDY0NSIgeTE9IjE1LjY0NjQiIHgyPSIxNS42NDY0IiB5Mj0iNS42NDY0NSIgc3Ryb2tlPSJibGFjayIvPgo8L3N2Zz4K" 
-                    width={30} 
-                    height={30} 
+                    width={27} 
+                    height={27} 
                     alt="close-icon" 
                     onClick={closeControl}></Image>
                 </span>
             </div>
         </div>
         <div className="wb-body">
-            qwd
+            
         </div>
         {/* <div className="wb-sizeable"> */}
         <div ref={refTop} className="wb-top"></div>

@@ -31,27 +31,31 @@
     width: 400px;
     // width: 100vw;
     flex-direction: column;
-}
-.wb-body{
-    background-color: yellow;
-    border: 5px solid green;
-    flex: 1;
+    
 }
 
 .wb-title{
-    background-color: red;
+    // background-color: red;
     display: inline-block;
-    margin: 0%;
+    margin-left: 20px;
+
     h2{
         margin: 0%;
         display: inline-block;
+        font-size: medium;
     }
 }
 .wb-drag{
     display: inline-block;
+    display: flex;
+    align-items: center;
+    
 }
 .wb-control{
     display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
 }
 .wb-min,.wb-full,.wb-close{
     // display: inline-block;
@@ -61,21 +65,40 @@
     
 }
 
+.wb-body{
+    background-color: #FAF4E6;
+    border: 5px solid black;
+    flex: 1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 
+    15px 15px 0 rgba(0, 0, 0, 0.6),  /* Main shadow */
+    15px 15px 0 rgba(0, 0, 0, 0.6); 
+}
+.min-icon{
+ }
 .wb-header{
-    background-color: blue;
-    border: 3px solid black;
+    background-color: #FAF4E6;
+    border: 5px solid black;
+    border-bottom: 0;
     display: flex;
+    // font-size: medium;
     align-items: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 
+    15px 15px 0 rgba(0, 0, 0, 0.6),  /* Main shadow */
+    15px 15px 0 rgba(0, 0, 0, 0.6); 
 }
 .wb-control{
     display: flex;
     align-items: center;
-    background-color: greenyellow;
+    // background-color: greenyellow;
 }
 .wb-drag{
     flex: 1;
     cursor: move;
-    background-color: aqua;
+    // background-color: aqua;
 }
 
   .wb-right, .wb-left, .wb-top, .wb-bottom,
@@ -95,6 +118,9 @@
     height: 6px;
     width: 100%;
     cursor: ns-resize;
+  }
+  .wb-top{
+    cursor: pointer;
   }
   
   .wb-right { right: 0; }
