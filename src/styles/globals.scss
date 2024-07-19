@@ -75,8 +75,18 @@
     15px 15px 0 rgba(0, 0, 0, 0.6),  /* Main shadow */
     15px 15px 0 rgba(0, 0, 0, 0.6); 
 }
-.min-icon{
+.min-icon:hover{
+    background-color: rgb(248, 248, 131);
+    border-radius: 20px;
  }
+ .max-icon:hover{
+    background-color:rgb(237, 193, 122);
+    border-radius: 20px;
+ }
+.close-icon:hover{
+    background-color: rgb(249, 183, 177);
+    border-radius: 20px;
+    }
 .wb-header{
     background-color: #FAF4E6;
     border: 5px solid black;
