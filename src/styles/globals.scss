@@ -178,6 +178,34 @@
     display: flex;
     align-items: center;
     .appdiv{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        // margin-left: 100px;
         flex: 1;
     }
+}
+.app-directory-container{
+    position: relative;
+}
+.app-directory-menu{
+    position: absolute;
+    bottom: 150%; /* This positions the menu above the taskbar */
+    // left: 0;
+    background-color: #FAF4E6;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    min-height: 150px;
+    min-width: 150px;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+}
+.app-directory:hover{
+    background-color: rgb(0, 0, 0);
+}
+.app-directory-active{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(0, 0, 0);
 }
