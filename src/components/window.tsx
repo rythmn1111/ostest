@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import Image from 'next/image'
 import Draggable, {DraggableCore,DraggableEvent, DraggableData} from 'react-draggable';
 import { Resizable } from 're-resizable';
@@ -14,7 +14,8 @@ function closeControl(){
 interface WindowStructureProps {
     playgroundHeight: number;
   }
-export default function WindowStructure() {
+
+export default function WindowStructure({children}: {children: ReactNode}) {
     const ref = useRef<HTMLElement | null>(null);
     const refLeft = useRef<HTMLDivElement | null>(null);
     const refTop = useRef<HTMLDivElement | null>(null);
@@ -217,7 +218,7 @@ export default function WindowStructure() {
             </div>
         </div>
         <div className="wb-body">
-            
+            {children}
         </div>
         {/* <div className="wb-sizeable"> */}
         <div ref={refTop} className="wb-top"></div>

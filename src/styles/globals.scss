@@ -74,6 +74,7 @@
     box-shadow: 
     15px 15px 0 rgba(0, 0, 0, 0.6),  /* Main shadow */
     15px 15px 0 rgba(0, 0, 0, 0.6); 
+    overflow: scroll;
 }
 .min-icon:hover{
     background-color: rgb(248, 248, 131);
@@ -177,11 +178,12 @@
 .task-bar{
     display: flex;
     align-items: center;
-    .appdiv{
+    .app-div{
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        // margin-left: 100px;
+        justify-content: center;
+        
+        margin-left: 150px;
         flex: 1;
     }
 }
@@ -201,8 +203,11 @@
     box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.9);
     z-index: 1000;
 }
-.app-directory:hover{
+.taskbar-elements:hover{
     background-color: rgb(0, 0, 0);
+}
+.taskbar-elements{
+    margin-right: 20px;
 }
 .app-directory-active{
     height: 100px;

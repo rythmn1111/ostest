@@ -21,7 +21,7 @@ export function Playground({children}: {children: React.ReactNode}) {
 export function TaskBar({children}: {children: React.ReactNode}) {
     
     return <div className="task-bar">
-        <div className="appdiv">{children}</div>
+        <div className="app-div">{children}</div>
         <div className="time-div">
             {/* <Clock format={"h:mma"} className="time-div" ticking={true}></Clock> */}
             <DateTimeDisplay />

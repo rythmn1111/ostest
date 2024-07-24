@@ -29,7 +29,7 @@ export default function AppDirectory(){
 
     return (
         <div className="app-directory-container" ref={menuRef}>
-        <Image src="/app_directory.svg" alt="Logo" width={40} height={40} style={{}} onClick={toggleMenu} className="app-directory" />
+        <Image src="/app_directory.svg" alt="Logo" width={40} height={40} style={{}} onClick={toggleMenu} className="taskbar-elements" />
         {isMenuOpen && (<div className="app-directory-menu">
             <div>Menu Item 1</div>
             <div>Menu Item 2</div>

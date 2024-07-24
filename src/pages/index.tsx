@@ -6,22 +6,36 @@ import WindowStructure from "@/components/window";
 import Desktop, {Playground} from "@/components/desktop";
 import dynamic from 'next/dynamic';
 import AppDirectory from "@/app_directory/app_directory";
+import AppList from "@/apps/apps";
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '@/redux/store' // Add this line to import RootState
+import { openWindow, closeWindow, toggleWindow } from "@/redux/windowOpen/windowOpen";
+import { Provider } from 'react-redux'
+import { store } from '@/redux/store'
 
 const TaskBar = dynamic(() => import('@/components/desktop').then(mod => mod.TaskBar), {
   ssr: false
 });
 
 export default function Home() {
-  
-  return (
+  const isOpen = useSelector((state: RootState) => state.windowOpen.value)
+  const dispatch = useDispatch()
+  return (  
     <Desktop>
-      <Playground>
-        <div></div>
+      <Playground>        
+       
+      {isOpen ? (
+          <WindowStructure><b>hello</b></WindowStructure>
+        ) : (
+          <div>No window is open</div>
+        )} 
       </Playground>
       <TaskBar>
         <AppDirectory />
+        <AppList />
       </TaskBar>
     </Desktop>
+
   );
 }
 
