@@ -31,7 +31,7 @@ export default function Home() {
           <div>{arr}</div>
         )} 
         <WindowStructure windowId={8}>some</WindowStructure>
-        <WindowStructure windowId={6}>some</WindowStructure>
+        
       </Playground>
       <TaskBar>
         <AppDirectory />
