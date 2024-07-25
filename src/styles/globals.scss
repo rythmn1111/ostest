@@ -31,8 +31,10 @@
     width: 400px;
     // width: 100vw;
     flex-direction: column;
+    // opacity: 0.8;
     
 }
+
 
 .wb-title{
     // background-color: red;
@@ -76,6 +78,21 @@
     15px 15px 0 rgba(0, 0, 0, 0.6); 
     overflow: scroll;
 }
+.wb-body::-webkit-scrollbar{
+    border-radius: 20px;
+    // background-color: aqua;
+
+}
+.wb-body::-webkit-scrollbar-thumb{
+    background-color: rgb(250, 213, 154);
+    // background-image: url("");
+    border-radius: 20px;
+}
+.wb-body::-webkit-scrollbar-corner {
+    // background-color: red;
+    border-radius: 30px; /* or any color you prefer */
+  }
+
 .min-icon:hover{
     background-color: rgb(248, 248, 131);
     border-radius: 20px;
@@ -213,4 +230,17 @@
     height: 100px;
     width: 100px;
     background-color: rgb(0, 0, 0);
+}
+// .menu{
+//     filter: i
+// }
+.menu{
+    font-size: small;
+}
+.menu:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    .menu-svg{
+        filter: invert(1) brightness(100%);
+    }
 }

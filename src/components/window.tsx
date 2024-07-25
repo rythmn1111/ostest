@@ -26,7 +26,7 @@ export default function WindowStructure({children}: {children: ReactNode}) {
     const refBottomLeft = useRef<HTMLDivElement | null>(null);
     const refBottomRight = useRef<HTMLDivElement | null>(null);
 
-
+    // const randotron = (Math.random()*150)
     const [isMaximize, setMaximize] = useState(false);
     const [position, setPosition] = useState({ x: 150, y: 150 });
     const [width, setWidth] = useState(600);

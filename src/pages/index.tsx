@@ -25,7 +25,7 @@ export default function Home() {
       <Playground>        
        
       {isOpen ? (
-          <WindowStructure><b>hello</b></WindowStructure>
+          <WindowStructure>hello</WindowStructure>
         ) : (
           <div>No window is open</div>
         )} 
