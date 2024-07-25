@@ -3,7 +3,9 @@ import Image from 'next/image'
 import Draggable, {DraggableCore,DraggableEvent, DraggableData} from 'react-draggable';
 import { Resizable } from 're-resizable';
 import { init } from "next/dist/compiled/webpack/webpack";
-
+import type { RootState } from "@/redux/store";
+import { useSelector, useDispatch } from 'react-redux'
+import { increment } from "@/redux/z_index/zindex";
 
 function minimizeControl(){
     alert("clicked")
@@ -15,7 +17,10 @@ interface WindowStructureProps {
     playgroundHeight: number;
   }
 
-export default function WindowStructure({children}: {children: ReactNode}) {
+export default function WindowStructure({children, windowId}: {children: ReactNode, windowId: number}) {
+    const zIndex = useSelector((state: RootState) => state.zIndex.windows[windowId] || 0)
+    const dispatch = useDispatch()
+    
     const ref = useRef<HTMLElement | null>(null);
     const refLeft = useRef<HTMLDivElement | null>(null);
     const refTop = useRef<HTMLDivElement | null>(null);
@@ -156,12 +161,16 @@ export default function WindowStructure({children}: {children: ReactNode}) {
     function closeControl(){
         alert("clicked")
     }
-
+    let zIndexLocal = 0;
+    function increasingZindex(){
+        dispatch(increment(windowId.toString()));
+    }
     // const resizable1 = ref.current as HTMLElement;
     return (
     <>
     {/* <div className="os-div"> */}
     <Draggable handle= ".wb-header" bounds="parent" position={isMaximize ? { x: 0, y: 0 } : position}
+    onStart = {increasingZindex}
     onDrag={(e: DraggableEvent | TouchEvent, data: DraggableData) => {
         if (isMaximize) {
           setMaximize(!isMaximize);
@@ -179,7 +188,7 @@ export default function WindowStructure({children}: {children: ReactNode}) {
 
       
     {/* top: isMaximize ? '0' : '30px', left: isMaximize ? '0' : '30px' , */}
-    <div ref={ref as React.RefObject<HTMLDivElement>} className="winbox" style={{ left: isMaximize?'0px':left ,height: isMaximize ? '100%' : height, width: isMaximize ? '100%' : width} }>
+    <div ref={ref as React.RefObject<HTMLDivElement>} className="winbox" style={{ left: isMaximize?'0px':left ,height: isMaximize ? '100%' : height, width: isMaximize ? '100%' : width, zIndex: zIndex} } onClick={increasingZindex}>
         <div className="wb-header">
             <div className="wb-drag" onDoubleClick={maximizeControl}>
                 {/* <div className="wb-ic9on"></div> */}

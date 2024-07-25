@@ -20,15 +20,18 @@ const TaskBar = dynamic(() => import('@/components/desktop').then(mod => mod.Tas
 export default function Home() {
   const isOpen = useSelector((state: RootState) => state.windowOpen.value)
   const dispatch = useDispatch()
+  const arr = [1, 2, 3, 4, 5]
   return (  
     <Desktop>
       <Playground>        
        
       {isOpen ? (
-          <WindowStructure>hello</WindowStructure>
+          <WindowStructure windowId={1111}>hello</WindowStructure>
         ) : (
-          <div>No window is open</div>
+          <div>{arr}</div>
         )} 
+        <WindowStructure windowId={8}>some</WindowStructure>
+        <WindowStructure windowId={6}>some</WindowStructure>
       </Playground>
       <TaskBar>
         <AppDirectory />
