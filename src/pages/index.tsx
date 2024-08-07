@@ -30,12 +30,13 @@ export default function Home() {
         ) : (
           <div>{arr}</div>
         )} 
-        <WindowStructure windowId={8}>some</WindowStructure>
+        <WindowStructure windowId={8}>
+          <textarea name="" id="" className="textArea" spellCheck= "false"></textarea>
+        </WindowStructure>
         
       </Playground>
       <TaskBar>
         <AppDirectory />
-        <AppList />
       </TaskBar>
     </Desktop>
 
