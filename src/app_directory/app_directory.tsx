@@ -43,8 +43,22 @@ export default function AppDirectory(){
                         <Image src="/medical_record_black.svg" alt="Logo" width={40} height={40}  style={{marginLeft:"10px"}} className="menu-svg"/></div>
                     <div style={{marginLeft: "10px", marginTop: "5px",marginRight:"10px"}} className="menu">medical record</div>
                 </div>
-                <hr />
-                <div style={{fontSize:"14px"}}>we would be adding more apps soon :)</div>
+                <div style={{display: "flex",marginBottom:"10px"}} className="menu">
+                    <div>
+                        <Image src="/medical_record_black.svg" alt="Logo" width={40} height={40}  style={{marginLeft:"10px"}} className="menu-svg"/></div>
+                    <div style={{marginLeft: "10px", marginTop: "5px",marginRight:"10px"}} className="menu">medical record</div>
+                </div>
+                <div style={{display: "flex",marginBottom:"10px"}} className="menu">
+                    <div>
+                        <Image src="/medical_record_black.svg" alt="Logo" width={40} height={40}  style={{marginLeft:"10px"}} className="menu-svg"/></div>
+                    <div style={{marginLeft: "10px", marginTop: "5px",marginRight:"10px"}} className="menu">medical record</div>
+                </div>
+                <div style={{display: "flex",marginBottom:"10px"}} className="menu">
+                    <div>
+                        <Image src="/medical_record_black.svg" alt="Logo" width={40} height={40}  style={{marginLeft:"10px"}} className="menu-svg"/></div>
+                    <div style={{marginLeft: "10px", marginTop: "5px",marginRight:"10px"}} className="menu">medical record</div>
+                </div>
+                
             </div>)}
         </div>
     )

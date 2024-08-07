@@ -30,12 +30,11 @@ export default function Home() {
         ) : (
           <div></div>
         )} 
-        
+        <WindowStructure windowId={8}>some</WindowStructure>
         
       </Playground>
       <TaskBar>
         <AppDirectory />
-        <AppList />
       </TaskBar>
     </Desktop>
 
