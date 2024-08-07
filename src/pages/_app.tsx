@@ -15,10 +15,12 @@ const pressStart2P = Press_Start_2P({
 
 export default function App({ Component, pageProps }: AppProps) {
   return <>
+  
   <Provider store={store}>
   <main className={pressStart2P.className} style={{ margin: 0, padding: 0 }}>
     <Component {...pageProps} />
   </main>
   </Provider>
+  
   </>
 }

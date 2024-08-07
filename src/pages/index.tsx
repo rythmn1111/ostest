@@ -12,7 +12,7 @@ import { RootState } from '@/redux/store' // Add this line to import RootState
 import { openWindow, closeWindow, toggleWindow } from "@/redux/windowOpen/windowOpen";
 import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
-
+import MedicalRecordsApp from "@/apps/medical_records/medical_records_app";
 const TaskBar = dynamic(() => import('@/components/desktop').then(mod => mod.TaskBar), {
   ssr: false
 });
@@ -26,11 +26,11 @@ export default function Home() {
       <Playground>        
        
       {isOpen ? (
-          <WindowStructure windowId={1111}>hello</WindowStructure>
+          <MedicalRecordsApp />
         ) : (
-          <div>{arr}</div>
+          <div></div>
         )} 
-        <WindowStructure windowId={8}>some</WindowStructure>
+        
         
       </Playground>
       <TaskBar>

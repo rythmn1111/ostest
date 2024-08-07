@@ -6,6 +6,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { openWindow, closeWindow, toggleWindow } from "@/redux/windowOpen/windowOpen";
 
 
+
+
+
 export default function AppList(){
    const isOpen = useSelector((state: RootState) => state.windowOpen.value)
     const dispatch = useDispatch()
