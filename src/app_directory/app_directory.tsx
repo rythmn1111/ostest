@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { TestingMenu } from "@/kernel/kernel";
 
 function directory(){
     alert("App Directory");
@@ -30,34 +31,14 @@ export default function AppDirectory(){
     // this is menu basically... don't mess with this code
     return (
         <div className="app-directory-container" ref={menuRef}>
-
+            
             <Image src="/app_directory.svg" alt="Logo" width={40} height={40} style={{}} onClick={toggleMenu} className="taskbar-elements" />
             {isMenuOpen && (<div className="app-directory-menu">
-            
-                <div style={{display: "flex",marginBottom:"10px"}} className="menu">
+                <TestingMenu></TestingMenu>
+                {/* <div style={{display: "flex",marginBottom:"10px"}} className="menu">
                     <div><Image src="/report_upload.svg" alt="Logo" width={40} height={40}  style={{marginLeft:"10px"} } className="menu-svg" /></div>
                     <div style={{marginLeft: "10px", marginTop: "5px",marginRight:"10px"}} className="menu"> upload/view report</div>
-                </div>
-                <div style={{display: "flex",marginBottom:"10px"}} className="menu">
-                    <div>
-                        <Image src="/medical_record_black.svg" alt="Logo" width={40} height={40}  style={{marginLeft:"10px"}} className="menu-svg"/></div>
-                    <div style={{marginLeft: "10px", marginTop: "5px",marginRight:"10px"}} className="menu">medical record</div>
-                </div>
-                <div style={{display: "flex",marginBottom:"10px"}} className="menu">
-                    <div>
-                        <Image src="/medical_record_black.svg" alt="Logo" width={40} height={40}  style={{marginLeft:"10px"}} className="menu-svg"/></div>
-                    <div style={{marginLeft: "10px", marginTop: "5px",marginRight:"10px"}} className="menu">medical record</div>
-                </div>
-                <div style={{display: "flex",marginBottom:"10px"}} className="menu">
-                    <div>
-                        <Image src="/medical_record_black.svg" alt="Logo" width={40} height={40}  style={{marginLeft:"10px"}} className="menu-svg"/></div>
-                    <div style={{marginLeft: "10px", marginTop: "5px",marginRight:"10px"}} className="menu">medical record</div>
-                </div>
-                <div style={{display: "flex",marginBottom:"10px"}} className="menu">
-                    <div>
-                        <Image src="/medical_record_black.svg" alt="Logo" width={40} height={40}  style={{marginLeft:"10px"}} className="menu-svg"/></div>
-                    <div style={{marginLeft: "10px", marginTop: "5px",marginRight:"10px"}} className="menu">medical record</div>
-                </div>
+                </div> */}
                 
             </div>)}
         </div>

@@ -35,6 +35,7 @@ export default function Home() {
       </Playground>
       <TaskBar>
         <AppDirectory />
+        <AppList></AppList>
       </TaskBar>
     </Desktop>
 
