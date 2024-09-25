@@ -13,6 +13,9 @@ import { openWindow, closeWindow, toggleWindow } from "@/redux/windowOpen/window
 import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
 import MedicalRecordsApp from "@/apps/medical_records/medical_records_app";
+import {WindowDeliver, A} from "@/kernel/kernel";
+import {AppCollection, AppDetails, apps} from "@/kernel/kernelregistery";
+import TestingApp from "@/apps/testingapp/testingapp";
 const TaskBar = dynamic(() => import('@/components/desktop').then(mod => mod.TaskBar), {
   ssr: false
 });
@@ -24,14 +27,15 @@ export default function Home() {
   return (  
     <Desktop>
       <Playground>        
-       
+{/*        
       {isOpen ? (
           <MedicalRecordsApp />
         ) : (
           <div></div>
         )} 
-        <WindowStructure windowId={8}>some</WindowStructure>
-        
+        <WindowStructure windowId={8}>some</WindowStructure> */}
+        <WindowDeliver></WindowDeliver>
+        {/* <TestingApp></TestingApp> */}
       </Playground>
       <TaskBar>
         <AppDirectory />
