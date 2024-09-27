@@ -1,9 +1,13 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { AppCollection, AppDetails, apps } from "./kernelregistery";
+import { UseSelector, useDispatch, useSelector } from "react-redux";
+import { addProcess, removeProcess } from "@/redux/kernel/kernel";
+import { RootState } from "@/redux/store"; // Import RootState
 
 // Array to keep track of the currently working apps
 const currentlyWorkingThread: AppDetails[] = [];
+
 
 export default function MainDeliver() {
     return <div>Medical Records App</div>;
@@ -11,21 +15,14 @@ export default function MainDeliver() {
 
 // WindowDeliver will render the app's component dynamically based on currently selected app
 export function WindowDeliver() {
+    const processes = useSelector((state: RootState) => state.process.process);
     return (
-        <div>
-            {currentlyWorkingThread.length > 0 ? (
-                currentlyWorkingThread.map((app, index) => {
-                    const AppCode = app.appCode;  // Extract the component
-                    return (
-                        <div key={index}>
-                            <AppCode />  {/* Render the component dynamically */}
-                        </div>
-                    );
-                })
-            ) : (
-                <div>No apps open</div>
-            )}
-        </div>
+        <>
+            {processes.map((app: AppDetails) => {
+                const AppComponent = app.appCode;
+                return <AppComponent key={app.id} />;
+            })}
+        </>
     );
 }
 
@@ -38,15 +35,13 @@ export function TaskBarDeliver() {
 }
 
 
-const handelClick = (item: AppDetails) => {
-    // Check if the app allows multiple windows or if it's already in the thread
-    // if (item.multipleWindowsAllowed || !currentlyWorkingThread.some(app => app.id === item.id)) {
-        currentlyWorkingThread.push(item);
-        console.log(currentlyWorkingThread)  // Add to the working thread
-    
-};
 
 export function TestingMenu() {
+    const dispatch = useDispatch();
+    const handelClick = (item: AppDetails) => {
+        dispatch(addProcess(item));
+    };
+    
     return (
         <>
             {Object.values(apps).map((item: AppDetails) => (

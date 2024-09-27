@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import windowOpen from './windowOpen/windowOpen'
 import  ZIndexState  from './z_index/zindex'
+import processState from './kernel/kernel'
+
 export const store = configureStore({
   reducer: {
     windowOpen: windowOpen,
-    zIndex: ZIndexState
+    zIndex: ZIndexState,
+    process: processState
   },
 })
 
