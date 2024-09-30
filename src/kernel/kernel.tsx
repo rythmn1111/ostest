@@ -31,7 +31,15 @@ export function A() {
 }
 
 export function TaskBarDeliver() {
-    return <div>Medical Records App</div>;
+    const processes = useSelector((state: RootState) => state.process.process);
+    return (
+        <>
+            {processes.map((app: AppDetails) => {
+                const AppIcon = app.icon;
+                return <Image key={app.id} src={AppIcon} alt="Logo" width={40} height={40} style={{}} />;
+            })}
+        </>
+    );
 }
 
 

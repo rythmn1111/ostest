@@ -29,7 +29,7 @@ export const apps: AppCollection = {
     "2":{
         id:"2",
         name: "test_app2",
-        icon: "/medical_record_black.svg",
+        icon: "/medical_record.svg",
         multipleWindowsAllowed: true,
         shortWindow: false,
         isHidden: false,
