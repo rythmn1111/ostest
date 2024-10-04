@@ -20,7 +20,7 @@ export function WindowDeliver() {
         <>
             {processes.map((app: AppDetails) => {
                 const AppComponent = app.appCode;
-                return <AppComponent key={app.id} />;
+                return <AppComponent key={app.tempId} id={app.tempId} />;
             })}
         </>
     );
@@ -36,24 +36,24 @@ export function TaskBarDeliver() {
         <>
             {processes.map((app: AppDetails) => {
                 const AppIcon = app.icon;
-                return <Image key={app.id} src={AppIcon} alt="Logo" width={40} height={40} style={{}} />;
+                return <Image key={app.tempId} src={AppIcon} alt="Logo" width={40} height={40} style={{}} />;
             })}
         </>
     );
 }
 
 
-
+//this is a fucking the menu 
 export function TestingMenu() {
     const dispatch = useDispatch();
     const handelClick = (item: AppDetails) => {
-        dispatch(addProcess(item));
+        dispatch(addProcess({ ...item, appKey: item.tempId }));
     };
     
     return (
         <>
             {Object.values(apps).map((item: AppDetails) => (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={item.tempId}>
                     <div style={{ display: "flex", marginBottom: "10px" }} className="menu" onClick={() => handelClick(item)}>
                         <div>
                             <Image src={item.icon} alt="Logo" width={40} height={40} style={{ marginLeft: "10px" }} className="menu-svg" />
