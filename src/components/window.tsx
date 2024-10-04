@@ -6,13 +6,8 @@ import { init } from "next/dist/compiled/webpack/webpack";
 import type { RootState } from "@/redux/store";
 import { useSelector, useDispatch } from 'react-redux'
 import { increment } from "@/redux/z_index/zindex";
+import { addProcess, removeProcess } from "@/redux/kernel/kernel";
 
-function minimizeControl(){
-    alert("clicked")
-}
-function closeControl(){
-    alert("clicked")
-}
 interface WindowStructureProps {
     playgroundHeight: number;
   }
@@ -158,8 +153,9 @@ export default function WindowStructure({children, windowId}: {children: ReactNo
     function minimizeControl(){
         alert("clicked")
     }
+    
     function closeControl(){
-        alert("clicked")
+        dispatch(removeProcess(windowId)); //
     }
     let zIndexLocal = 0;
     function increasingZindex(){

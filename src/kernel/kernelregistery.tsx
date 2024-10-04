@@ -3,6 +3,7 @@ import React from "react";
 import TestingApp from "@/apps/testingapp/testingapp";
 
 export interface AppDetails {
+    id: number;
   tempId: number;
     name: string;
   icon: string;

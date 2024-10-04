@@ -38,7 +38,8 @@ export const processSlice = createSlice({
       }
     },
     removeProcess: (state, action: PayloadAction<number>) => {
-      state.process = state.process.filter(app => app.tempId !== action.payload);
+        state.process = state.process.filter(app => app.id !== action.payload);
+        console.log(state.process, action) // Filter by process ID
     }
   }
 });
